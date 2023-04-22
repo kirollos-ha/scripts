@@ -1,0 +1,30 @@
+#/usr/bin/bash
+
+# echo exit first so it will appear on top
+# and be the option picked whenever the user presses enter without input
+
+program=$((echo "exit" && dmenu_path) | bemenu "$@" -l 10 -p "programma : ")
+[[ $program == "exit" ]] && exit
+
+echo "programmino pane vino"
+echo $program
+
+currPath=$HOME
+emergencyCount=0
+while test -d $currPath
+do
+	let emergencyCounter++
+	currSub=$((echo "exit" && echo "no dir" && ls -a --color=no $currPath) | bemenu -l 10 -p $currPath)
+	#TODO proof against "abort"/"nop" being present as a file/subdirectory
+	currPath="$currPath/$currSub"
+
+	# handle special inputs for
+	# exiting program (TODO proof this against "quit" being a file/subdirectory)
+	[[ $currSub == "exit" ]] && exit
+	# running the program without giving a directory ("-" seems to be the default for bemenu)
+	[[ $currSub == "-" || $currSub == "no dir" ]] && currPath="" && break
+	# open program in this directory, don't wait for a file
+	[[ $currSub == "." ]] && break
+done
+
+$program $currPath
