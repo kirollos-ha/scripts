@@ -2,6 +2,7 @@ Script e utility varie
 Gli script et al. sono intesi per girare sul mio sistema, e potrebbero spesso dipendere da altri script e/o da altri programmi/componenti/strutture del suddetto sistema.
 
 ** Cartelle
- - =bin= e =sh= conentono gli eseguibili, ripsettivametne binari e non
- - =src= contiene il sorgente per gli eseguibili binari, insieme a qualche utility volta alla compilazoine di questi
+ - ==sh= contiene script eseguibili
+ - =src= contiene il sorgente per eseguibili binari, insieme a qualche utility volta alla compilazoine di questi
+ - =bin= (non versionata) conterrà gli eseguibili 
 
