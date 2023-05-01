@@ -2,10 +2,6 @@ Script e utility varie
 Gli script et al. sono intesi per girare sul mio sistema, e potrebbero spesso dipendere da altri script e/o da altri programmi/componenti/strutture del suddetto sistema.
 
 ** Cartelle
- - =bin= e =sh= conentono gli eseguibili, ripsettivametne binari e non,
-   oltre ai fini organizzativi l'autore spera che che "chiuderle" al resto del repository permetta di tenerle nella PATH senza invadere questa di contenuti del =.git=
-   (questo visto che =$HOME/.local/bin= è, al momento, invasa da pip)
+ - =bin= e =sh= conentono gli eseguibili, ripsettivametne binari e non
  - =src= contiene il sorgente per gli eseguibili binari, insieme a qualche utility volta alla compilazoine di questi
 
-   
-   

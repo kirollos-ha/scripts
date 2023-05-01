@@ -1,7 +1,18 @@
 #!/usr/bin/bash
 
+# al momento quanto voglio fare di run command non è abbastanza complesso/modulare da giustificare
+# l'utilizzo di un secondo file, quindi
+dwm_rc() {
+	feh --bg-center /home/big/Pictures/Sfondi/Berserk/luna.jpg
+}
+
+dwm_with_rc() {
+	dwm_rc
+	dwm
+}
+
 restartable no
-dwm
+dwm_with_rc
 while [[ -f /tmp/dwm-restart ]] do
-      dwm
+	dwm_with_rc
 done
