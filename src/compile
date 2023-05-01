@@ -1,0 +1,8 @@
+#!/usr/bin/bash
+
+no_post_dot() {
+	echo "$1" | awk -F. '{print $1}'
+}
+OUTPATH="../bin"
+
+gcc -O2 "$1" -o "$OUTPATH/$(no_post_dot $1)"
