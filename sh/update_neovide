@@ -1,0 +1,7 @@
+#! /usr/bin/bash
+
+curl -LO https://github.com/neovide/neovide/releases/latest/download/neovide.tar.gz
+gunzip neovide.tar.gz
+tar -xf neovide.tar
+mv neovide ~/.local/bin
+rm neovide.tar
