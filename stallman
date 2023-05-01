@@ -1,8 +1,0 @@
-#!/usr/bin/sh
-
-if pidof -q emacs; then
-	emacsclient --create-frame ~
-else
-	export LSP_USE_PLISTS=true
-	emacs --daemon &
-fi

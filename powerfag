@@ -1,7 +1,0 @@
-#! /usr/bin/bash
-
-wifi off
-bluetooth off
-killall nm-applet
-killall volumeicon
-light -S 1

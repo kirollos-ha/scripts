@@ -1,2 +1,0 @@
-#! /usr/bin/bash
-setxkbmap -layout us,it -option grp:win_space_toggle

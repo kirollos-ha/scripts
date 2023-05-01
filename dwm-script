@@ -1,7 +1,0 @@
-#!/usr/bin/bash
-
-restartable no
-dwm
-while [[ -f /tmp/dwm-restart ]] do
-      dwm
-done

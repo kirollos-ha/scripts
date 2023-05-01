@@ -2,6 +2,8 @@
 
 # echo exit first so it will appear on top
 # and be the option picked whenever the user presses enter without input
+# please note that this programs dies a horrible death when anything has to be escaped (like parens or spaces)
+# I have tried implementing support for it, and suffered the consequences
 
 program=$((echo "exit" && dmenu_path) | dmenu "$@" -l 10 -p "programma : ")
 [[ $program == "exit" ]] && exit

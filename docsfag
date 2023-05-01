@@ -1,3 +1,0 @@
-#! /bin/bash
-
-emacs --eval "(eww-open-file \"~/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/share/doc/rust/html/book/index.html\")"
