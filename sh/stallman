@@ -1,7 +1,12 @@
 #!/usr/bin/sh
 
+emacs_win () {
+	emacsclient --create-frame "$1"
+}
+default_dir="$HOME"
+
 if pidof -q emacs; then
-	emacsclient --create-frame ~
+	([[ "$1" == "" ]] && emacs_win "$default_dir" ) || emacs_win "$1"
 else
 	export LSP_USE_PLISTS=true
 	emacs --daemon &

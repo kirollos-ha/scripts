@@ -1,0 +1,11 @@
+#!/usr/bin/bash
+
+seconds="$1"
+iter="0"
+while [[ "$seconds" -ge "$iter" ]]; do
+	iter=$(($iter + 1))
+	sleep 1s
+  	echo "$iter"
+done
+
+spd-say 'ok'

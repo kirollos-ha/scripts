@@ -1,0 +1,4 @@
+#!/usr/bin/bash
+
+emergency_wallpaper="$HOME/Pictures/Sfondi/Altri/earth.jpg"
+feh --bg-center "$emergency_wallpaper"
