@@ -1,0 +1,16 @@
+ - bagdanov :: feh
+ - clockthing :: spd-say
+ - docsfag :: qutebrowser
+ - dwm-script :: dwm, feh
+ - keyfag :: setxkbmap
+ - mary :: feh
+ - netui :: st, mntui
+ - powerfag :: tlp wifi and bluetooth, light
+ - promptu :: dmenu
+ - restartable :: none
+ - screenclip :: scrot
+ - stalfos :: emacs
+ - stallman :: none
+ - update_neovide :: curl
+ - way-promptu :: bemenu
+ - wifag :: tlp wifi and bluetooth
