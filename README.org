@@ -4,5 +4,3 @@ Gli script et al. sono intesi per girare sul mio sistema, e potrebbero spesso di
 ** Cartelle
  - =sh= contiene script eseguibili
  - =src= contiene il sorgente per eseguibili binari, insieme a qualche utility volta alla compilazoine di questi
- - =bin= (non versionata) conterrà gli eseguibili binari, visto che mandarli dritti alla path mi fa venire da piangere solo a pensarci
-
