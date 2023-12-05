@@ -1,13 +1,36 @@
 #!/usr/bin/sh
 
 emacs_win () {
-	emacsclient --create-frame "$1"
+    # pgtk momento
+	emacsclient -s 'server' --create-frame "$1"
 }
+
+# https://emacs.stackexchange.com/questions/6104/reload-environment-variables
+emacs_env_tempfile="/tmp/emacs-env"
+emacs_update_env () {
+    touch "$emacs_env_tempfile"
+    printenv -0 > "$emacs_env_tempfile"
+    emacsclient -s 'server'\
+                -e '(bro-update-env "'"$emacs_env_tempfile"'")' > /dev/null
+    rm  "$emacs_env_tempfile"
+}
+
+more_client_init_shit() {
+    emacsclient -s 'server' -e '(more-client-init-shit)' > /dev/null
+    emacsclient -s 'server' -e '(cazzo-load-once)' > /dev/null
+}
+
+emacs_pre_client_init() {
+    emacs_update_env
+    more_client_init_shit
+}
+
 default_dir="$HOME"
 
 if pidof -q emacs; then
+	emacs_pre_client_init
 	([[ "$1" == "" ]] && emacs_win "$default_dir" ) || emacs_win "$1"
 else
 	export LSP_USE_PLISTS=true
-	emacs --daemon &
+	emacs --daemon='server' &
 fi

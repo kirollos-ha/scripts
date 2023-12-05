@@ -1,0 +1,70 @@
+#!/usr/bin/bash
+
+if [[ "$1" == "-h" ]]; then
+	echo "usage: cazzo [<wm (shorthand)>]"
+    echo "             [<picom? [y/N]>]"
+    echo "             [<wallpaper (shorthand)>]"
+    echo "             [<wallpaper policy [(C)enter/(f)it]>]"
+    exit 0
+fi
+
+declare -A wm_shorthands
+wm_shorthands=(["d"]="stumpwm"
+               ["def"]="stumpwm"
+               ["duro"]="stumpwm"
+
+               ["s"]="stumpwm"
+               ["h"]="xmonad"
+               ["x"]="xmonad"
+               ["b"]="bspwm"
+               ["a"]="awesome"
+               ["r"]="ratpoison"
+               ["c"]="cinnamon-session-cinnamon"
+               ["q"]="qtile"
+               ["o"]="openbox"
+               ["i"]="i3"
+
+               ["stumpwm"]="stumpwm"
+               ["xmonad"]="xmonad"
+               ["bspwm"]="bspwm"
+               ["awesome"]="awesome"
+               ["ratpoison"]="ratpoison"
+               ["cinnamon"]="cinnamon-session-cinnamon"
+               ["cinnamon-session-cinnamon"]="cinnamon-session-cinnamon"
+               ["qtile"]="qtile"
+               ["openbox"]="openbox"
+               ["i3"]="i3"
+              )
+
+declare -A picom_default_commands
+picom_default_commands=(["xmonad"]="picom -b --config /dev/null"
+                       )
+
+if [[ "$1" == "" ]]; then
+    wm="stumpwm";
+else
+    wm="${wm_shorthands[$1]}";
+fi
+
+
+if [[ "$2" == "" || "$2" == "d" ]]; then
+    picom_cmd="${picom_default_commands[$wm]}";
+elif [[ "$2" == "y" || "$2" == "Y" ]]; then
+    picom_cmd="picom -b";
+else
+    picom_cmd="";
+fi
+
+themery=""
+if [[ "3" != "" ]]; then
+   themery="themecazzo $3 calvin";
+fi
+
+cat ~/.local/share/xshit/common_xinitrc_preamble > ~/.xinitrc
+echo "$picom_cmd" >> ~/.xinitrc
+echo "$wallpaper_cmd" >> ~/.xinitrc
+echo "$themery" >> ~/.xinitrc
+echo "exec $wm" >> ~/.xinitrc
+
+cd ~
+startx

@@ -1,0 +1,18 @@
+#!/usr/bin/bash
+
+declare -A wm_shorthands
+wm_shorthands=(["k"]="/usr/libexec/plasma-dbus-run-session-if-needed /usr/bin/startplasma-wayland"
+               ["g"]="gnome-session"
+               ["s"]="sway"
+               ["r"]="river"
+               ["w"]="wayfire"
+               ["duro"]="wayfire"
+              )
+
+cd ~
+if [[ "$1" != "" ]]; then
+	echo "${wm_shorthands[$1]}" | $SHELL;
+else
+	# sane enough default
+	wayfire;
+fi

@@ -1,0 +1,38 @@
+#!/usr/bin/bash
+
+predestine_emacs_theme () {
+    echo "(change-theme-nonint '$1)" > ~/.emacs.d/myshit/cazzo-load-once.el
+}
+
+set_emacs_theme () {
+    emacsclient -s 'server' -e "(change-theme-nonint '$1)";
+}
+
+calvin="$2"
+emacs_theme () {
+    if [[ "$calvin" == "calvin" ]]; then
+        predestine_emacs_theme "$1";
+    else
+        set_emacs_theme "$1";
+    fi
+}
+
+wall () {
+    echo "$HOME/Pictures/Sfondi/$1"
+}
+
+case "$1" in
+    ("n" | "no" | "nord")
+        echo "nord"
+        feh --no-fehbg --bg-center `wall Nord/weeb-resize.jpg`
+        emacs_theme "doom-nord-aurora" ;;
+    ("c" | "ch" | "cheems")
+        echo "cheems"
+        feh --no-fehbg --bg-center --image-bg "#000000" \
+            `wall editando-cheems.jpg`
+        emacs_theme "ef-tritanopia-dark" ;;
+    ("s" | "samo" | "samori")
+        echo "samori"
+        feh --no-fehbg --bg-center `wall Samori/samori_01.jpg`
+        emacs_theme "doom-zenburn" ;;
+esac
